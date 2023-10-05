@@ -10,7 +10,12 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		
+		<module>enviador-peliculas</module>
+		<module>enviador-valoraciones</module>
+		<module>aplicador-valoraciones</module>
+		<module>clasificador-mejorespeliculas</module>
+		<module>agregador-peliculas-masvistas</module>
+		<module>consultador-peliculas</module>
 	</modules>
 	
 	<parent>
