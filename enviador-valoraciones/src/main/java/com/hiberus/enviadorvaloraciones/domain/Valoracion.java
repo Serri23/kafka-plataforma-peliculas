@@ -1,4 +1,4 @@
-package com.hiberus.enviadorvaloraciones.infraestructure.domain;
+package com.hiberus.enviadorvaloraciones.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,11 +8,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class Valoracion {
+	
 	private long id;
 	
 	private long idPelicula;
 	
 	private float puntuacion;
 	
-	private String comentario;
+	private String comentario;	
 }

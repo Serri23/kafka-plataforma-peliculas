@@ -1,6 +1,6 @@
 package com.hiberus.enviadorvaloraciones.infraestructure.rest.service;
 
-import com.hiberus.enviadorvaloraciones.infraestructure.domain.Valoracion;
+import com.hiberus.enviadorvaloraciones.domain.Valoracion;
 
 public interface ValoracionService {
 

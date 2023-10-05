@@ -79,6 +79,16 @@ services:
             - kafka
         restart: always
     
+    #enviador-valoraciones:
+      #  build: ./enviador-valoraciones
+      #  container_name: enviador-valoraciones
+      # restart: always
+      #  ports:
+      #  - "8083:8083"
+      #  environment:
+      #  - "kafka=kafka"
+      #  - "schema-registry=schema-registry"
+         
     aplicador-valoraciones-db:
         image: postgres
         container_name: "aplicador-valoraciones-db"
