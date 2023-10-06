@@ -1,0 +1,41 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.enviadorpeliculas.infraestructure.kafka.avro",
+  "name": "PeliculaValue",
+  "fields": [
+    {
+      "name": "titulo",
+      "type": "string"
+    },
+    {
+      "name": "descripcion",
+      "type": "string"
+    },
+    {
+      "name": "categoria",
+      "type": {
+        "type": "enum",
+        "name": "Categoria",
+        "namespace": "com.hiberus.enviadorpeliculas.infraestructure.kafka.avro",
+        "symbols": [
+          "ACCION",
+          "TERROR",
+          "COMEDIA",
+          "DRAMA"
+        ]
+      }
+    },
+    {
+    	"name": "fechaEstreno", 
+    	"type": "string"
+    },
+    {
+    	"name": "duracion",
+    	"type": "float"
+    },
+    {
+    	"name": "visualizaciones",
+    	"type": "long"
+    }
+  ]
+}

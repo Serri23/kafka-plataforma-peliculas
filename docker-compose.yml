@@ -79,15 +79,25 @@ services:
             - kafka
         restart: always
     
-    #enviador-valoraciones:
-      #  build: ./enviador-valoraciones
-      #  container_name: enviador-valoraciones
-      # restart: always
-      #  ports:
-      #  - "8083:8083"
-      #  environment:
-      #  - "kafka=kafka"
-      #  - "schema-registry=schema-registry"
+#    enviador-valoraciones:
+#      build: ./enviador-valoraciones
+#      container_name: enviador-valoraciones
+#      restart: always
+#      ports:
+#       - "8083:8083"
+#      environment:
+#      - "kafka=kafka"
+#      - "schema-registry=schema-registry"
+    
+#    enviador-peliculas:
+#      build: ./enviador-peliculas
+#      container_name: enviador-peliculas
+#      restart: always
+#      ports:
+#      - "8084:8084"
+#      environment:
+#      - "kafka=kafka"
+#      - "schema-registry=schema-registry"
          
     aplicador-valoraciones-db:
         image: postgres

@@ -10,10 +10,13 @@ import com.hiberus.enviadorvaloraciones.infraestructure.kafka.avro.ValoracionVal
 import com.hiberus.enviadorvaloraciones.infraestructure.kafka.mapper.ValoracionKafkaMapper;
 import com.hiberus.enviadorvaloraciones.infraestructure.rest.service.ValoracionService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class ValoracionServiceImpl implements ValoracionService{
 	
-	final String TOPIC_DE_VALORACIONES = "valoraciones";
+	static final String TOPIC_DE_VALORACIONES = "valoraciones";
 	
 	@Autowired
 	ValoracionKafkaMapper valoracionKafkaMapper;
@@ -26,12 +29,13 @@ public class ValoracionServiceImpl implements ValoracionService{
 		ValoracionKey valoracionKey = new ValoracionKey(valoracion.getId());
 		ValoracionValue valoracionValue = valoracionKafkaMapper.valoracionToValoracionValue(valoracion);
 		kafkaTemplate.send(TOPIC_DE_VALORACIONES,valoracionKey,valoracionValue);
-		
+		log.info("Valoracion ["+valoracion.getId()+"] enviada al topic de valoraciones");
 	}
 
 	@Override
 	public void eliminarValoracion(Long id) {
 		ValoracionKey valoracionKey = new ValoracionKey(id);
 		kafkaTemplate.send(TOPIC_DE_VALORACIONES,valoracionKey,null);
+		log.info("Valoracion ["+id+"] enviada al topic de valoraciones");
 	}
 }
