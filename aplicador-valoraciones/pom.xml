@@ -51,9 +51,18 @@
 							<goal>schema</goal>
 						</goals>
 						<configuration>
-							<sourceDirectory>src/main/resources/avro</sourceDirectory>
-							<testSourceDirectory>src/test/resources/avro</testSourceDirectory>
-							<fieldVisibility>PRIVATE</fieldVisibility>
+							<sourceDirectory>${project.basedir}/src/main/resources/avro/</sourceDirectory>
+							<imports>
+								<import>${project.basedir}/src/main/resources/avro/ValoracionKey.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/ValoracionValue.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/PeliculaKey.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/PeliculaValue.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/PeliculaValoradaKey.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/PeliculaValoradaValue.avsc</import>
+							</imports>
+							<includes>
+								<include>*.avsc</include>
+							</includes>
 						</configuration>
 					</execution>
 				</executions>

@@ -4,6 +4,10 @@
   "name": "ValoracionValue",
   "fields": [
     {
+      "name": "id",
+      "type": "long"
+    },
+    {
       "name": "id_pelicula",
       "type": "long"
     },
