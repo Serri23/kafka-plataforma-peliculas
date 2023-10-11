@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.agregadorpeliculasmasvistas.infraestructure.kafka.avro",
+  "name": "PeliculasValoradasMasVistasKey",
+  "fields": [
+    {
+      "name": "visualizaciones",
+      "type": "long"
+    }
+  ]
+}
