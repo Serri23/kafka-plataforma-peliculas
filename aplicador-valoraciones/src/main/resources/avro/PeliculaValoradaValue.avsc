@@ -50,7 +50,7 @@
 	            "type": "record",
 	            "fields":[
 	                {
-				      "name": "id_pelicula",
+				      "name": "id",
 				      "type": "long"
 				    },
 				    {

@@ -8,10 +8,6 @@
       "type": "long"
     },
     {
-      "name": "id_pelicula",
-      "type": "long"
-    },
-    {
       "name": "puntuacion",
       "type": "float"
     },

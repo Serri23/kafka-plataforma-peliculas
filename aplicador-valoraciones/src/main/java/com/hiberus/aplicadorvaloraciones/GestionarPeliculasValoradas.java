@@ -16,19 +16,32 @@ public class GestionarPeliculasValoradas{
 
 	private GestionarPeliculasValoradas() {}
 	
-	public static void añadirValoracionAPelicula(PeliculaValoradaId peliculaValoradaId,PeliculaRepository peliculaRepository, ValoracionRepository valoracionRepository, PeliculaValoradaRepository peliculaValoradaRepository, PeliculaValoradaKafkaService peliculaValoradaKafkaService) {
+	public static void añadirValoracionAPelicula(Long idPelicula,Long idValoracion,PeliculaRepository peliculaRepository, ValoracionRepository valoracionRepository, PeliculaValoradaRepository peliculaValoradaRepository, PeliculaValoradaKafkaService peliculaValoradaKafkaService) {
 		
-		if(!valoracionRepository.existsById(peliculaValoradaId.getIdValoracion())) {
-			Valoracion valoracion = valoracionRepository.findById(peliculaValoradaId.getIdValoracion()).get();
-			if(!peliculaValoradaRepository.existsById(peliculaValoradaId.getIdPelicula())) {
-				List<Valoracion> valoraciones = new ArrayList<>();
+		if(!valoracionRepository.existsById(idValoracion)) {
+			Valoracion valoracion = valoracionRepository.findById(idValoracion).get();
+			if(!peliculaValoradaRepository.existsById(idPelicula)) {
+				ArrayList<Valoracion> valoraciones = new ArrayList<>();
 				valoraciones.add(valoracion);
-				Pelicula pelicula = peliculaRepository.findById(peliculaValoradaId.getIdPelicula()).get();
-				PeliculaValorada peliculaValorada = new PeliculaValorada(peliculaValoradaId,pelicula,valoracion);
+				Pelicula pelicula = peliculaRepository.findById(idPelicula).get();
+				PeliculaValorada peliculaValorada = new PeliculaValorada(
+						pelicula.getId(),
+						pelicula.getTitulo(),
+						pelicula.getDescripcion(),
+						pelicula.getCategoria(),
+						pelicula.getFechaEstreno(),
+						pelicula.getDuracion(),
+						pelicula.getVisualizaciones(),
+						valoraciones);
+				peliculaValoradaRepository.save(peliculaValorada);
+				peliculaValoradaKafkaService.enviarPeliculaValorada(peliculaValorada);
+			}else {
+				PeliculaValorada peliculaValorada = peliculaValoradaRepository.findById(idPelicula).get();
+				peliculaValorada.getValoraciones().add(valoracion);
 				peliculaValoradaRepository.save(peliculaValorada);
 				peliculaValoradaKafkaService.enviarPeliculaValorada(peliculaValorada);
 			}
-//			}else {
+//			else {
 //				PeliculaValorada peliculaValorada = peliculaValoradaRepository.findById(peliculaValoradaId.getIdPelicula()).get();
 //				peliculaValorada.getValoraciones().add(valoracion);
 //				peliculaValoradaRepository.save(peliculaValorada);

@@ -35,8 +35,8 @@ public class PeliculaValoradaControllerImpl implements PeliculaValoradaControlle
 	@PostMapping(value="/añadirValoracionAPelicula")
 	@ResponseStatus(HttpStatus.ACCEPTED)
 	public void añadirValoracionAPelicula(@RequestParam Long idPelicula, @RequestParam Long idValoracion) {
-		PeliculaValoradaId peliculaValoradaId = new PeliculaValoradaId(idPelicula, idValoracion);
-		GestionarPeliculasValoradas.añadirValoracionAPelicula(peliculaValoradaId,peliculaRepository,valoracionRepository,peliculaValoradaRepository,peliculaValoradaKafkaService);
+		//PeliculaValoradaId peliculaValoradaId = new PeliculaValoradaId(idPelicula, idValoracion);
+		GestionarPeliculasValoradas.añadirValoracionAPelicula(idPelicula,idValoracion,peliculaRepository,valoracionRepository,peliculaValoradaRepository,peliculaValoradaKafkaService);
 	}
 
 	@PostMapping(value="/eliminarValoracionDePelicula")

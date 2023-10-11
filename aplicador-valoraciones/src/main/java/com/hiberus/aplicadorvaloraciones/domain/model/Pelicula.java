@@ -1,29 +1,18 @@
 package com.hiberus.aplicadorvaloraciones.domain.model;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class Pelicula {
 
 	@Id
 	private Long id;
-	
+	@Column(name = "puntuacion")
 	private String titulo;
 	
 	private String descripcion;
@@ -39,8 +28,8 @@ public class Pelicula {
 //	@OneToMany(mappedBy="pelicula")
 //	private Set<Valoracion> valoraciones;
 	
-	@OneToMany( mappedBy = "pelicula", cascade = CascadeType.ALL )
-    private Set<PeliculaValorada> valoraciones;
+//	@OneToMany( mappedBy = "pelicula", cascade = CascadeType.ALL )
+//    private Set<PeliculaValorada> peliculasValoradas;
 
 	public Pelicula(Long id, String titulo, String descripcion, String categoria, String fechaEstreno, float duracion,
 			long visualizaciones) {

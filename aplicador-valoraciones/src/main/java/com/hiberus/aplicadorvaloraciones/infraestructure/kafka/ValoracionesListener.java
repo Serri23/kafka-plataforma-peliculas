@@ -29,7 +29,7 @@ public class ValoracionesListener {
 			if((valoracionValue == null)) {
 				valoracionService.eliminar(valoracionKey.getId());
 			}else {
-				Valoracion valoracion = new Valoracion(valoracionKey.getId(),valoracionValue.getIdPelicula(),valoracionValue.getPuntuacion(),valoracionValue.getComentario());
+				Valoracion valoracion = new Valoracion(valoracionKey.getId(),valoracionValue.getPuntuacion(),valoracionValue.getComentario());
 				valoracionService.crear(valoracion);
 			}
 		});

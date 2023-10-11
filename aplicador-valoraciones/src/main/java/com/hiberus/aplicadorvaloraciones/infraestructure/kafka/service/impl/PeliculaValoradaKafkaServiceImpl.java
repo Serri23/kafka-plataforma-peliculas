@@ -19,7 +19,7 @@ public class PeliculaValoradaKafkaServiceImpl implements PeliculaValoradaKafkaSe
 	
 	public void enviarPeliculaValorada(PeliculaValorada peliculaValorada) {
 		PeliculaValoradaKey peliculaValoradaKey = new PeliculaValoradaKey();
-		peliculaValoradaKey.setId(peliculaValorada.getPelicula().getId());
+		peliculaValoradaKey.setId(peliculaValorada.getId());
 		PeliculaValoradaValue peliculaValoradaValue = new PeliculaValoradaValue();
 		
 		kafkaTemplate.send(TOPIC_DE_PELICULAS_VALORADAS,peliculaValoradaKey,peliculaValoradaValue);
