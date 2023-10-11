@@ -8,26 +8,41 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hiberus.aplicadorvaloraciones.GestionarPeliculasValoradas;
+import com.hiberus.aplicadorvaloraciones.domain.model.PeliculaValoradaId;
+import com.hiberus.aplicadorvaloraciones.domain.repository.PeliculaRepository;
+import com.hiberus.aplicadorvaloraciones.domain.repository.PeliculaValoradaRepository;
+import com.hiberus.aplicadorvaloraciones.domain.repository.ValoracionRepository;
+import com.hiberus.aplicadorvaloraciones.infraestructure.kafka.service.PeliculaValoradaKafkaService;
 import com.hiberus.aplicadorvaloraciones.infraestructure.rest.controller.PeliculaValoradaController;
-import com.hiberus.aplicadorvaloraciones.infraestructure.rest.service.PeliculaValoradaService;
 
 @RestController
 @RequestMapping(value="/valoraciones")
 public class PeliculaValoradaControllerImpl implements PeliculaValoradaController{
 
 	@Autowired
-	PeliculaValoradaService peliculaValoradaService;
+	PeliculaRepository peliculaRepository;
+	
+	@Autowired
+	ValoracionRepository valoracionRepository;
+	
+	@Autowired
+	PeliculaValoradaRepository peliculaValoradaRepository;
+	
+	@Autowired
+	PeliculaValoradaKafkaService peliculaValoradaKafkaService;
 	
 	@PostMapping(value="/añadirValoracionAPelicula")
 	@ResponseStatus(HttpStatus.ACCEPTED)
 	public void añadirValoracionAPelicula(@RequestParam Long idPelicula, @RequestParam Long idValoracion) {
-		peliculaValoradaService.añadirValoracionAPelicula(idPelicula,idValoracion);
+		PeliculaValoradaId peliculaValoradaId = new PeliculaValoradaId(idPelicula, idValoracion);
+		GestionarPeliculasValoradas.añadirValoracionAPelicula(peliculaValoradaId,peliculaRepository,valoracionRepository,peliculaValoradaRepository,peliculaValoradaKafkaService);
 	}
 
 	@PostMapping(value="/eliminarValoracionDePelicula")
 	@ResponseStatus(HttpStatus.ACCEPTED)
 	public void eliminarValoracionDePelicula(Long idPelicula, Long idValoracion) {
-		peliculaValoradaService.eliminarValoracionDePelicula(idPelicula,idValoracion);
+		GestionarPeliculasValoradas.eliminarValoracionDePelicula(idPelicula,idValoracion,peliculaRepository,valoracionRepository,peliculaValoradaRepository,peliculaValoradaKafkaService);
 	}
 
 }

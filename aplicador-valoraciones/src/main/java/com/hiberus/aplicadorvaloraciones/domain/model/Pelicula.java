@@ -2,6 +2,7 @@ package com.hiberus.aplicadorvaloraciones.domain.model;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,35 +12,45 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
 @Builder
 @AllArgsConstructor
-@Table(name = "peliculas")
+@NoArgsConstructor
 public class Pelicula {
 
 	@Id
 	private Long id;
 	
-	@Column(name = "titulo")
 	private String titulo;
 	
-	@Column(name = "descripcion")
 	private String descripcion;
 	
-	@Column(name = "categoria")
 	private String categoria;
 	
-	@Column(name = "fechaEstreno")
 	private String fechaEstreno;
 	
-	@Column(name = "duracion")
 	private float duracion;
 	
-	@Column(name = "visualizaciones")
 	private long visualizaciones;
 	
-	@OneToMany(mappedBy="pelicula")
-	private Set<Valoracion> valoraciones;
+//	@OneToMany(mappedBy="pelicula")
+//	private Set<Valoracion> valoraciones;
+	
+	@OneToMany( mappedBy = "pelicula", cascade = CascadeType.ALL )
+    private Set<PeliculaValorada> valoraciones;
+
+	public Pelicula(Long id, String titulo, String descripcion, String categoria, String fechaEstreno, float duracion,
+			long visualizaciones) {
+		super();
+		this.id = id;
+		this.titulo = titulo;
+		this.descripcion = descripcion;
+		this.categoria = categoria;
+		this.fechaEstreno = fechaEstreno;
+		this.duracion = duracion;
+		this.visualizaciones = visualizaciones;
+	}
 }

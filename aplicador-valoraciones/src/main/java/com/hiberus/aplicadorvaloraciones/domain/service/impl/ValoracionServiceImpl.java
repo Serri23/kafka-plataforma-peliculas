@@ -1,11 +1,13 @@
 package com.hiberus.aplicadorvaloraciones.domain.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.hiberus.aplicadorvaloraciones.domain.model.Valoracion;
 import com.hiberus.aplicadorvaloraciones.domain.repository.ValoracionRepository;
 import com.hiberus.aplicadorvaloraciones.domain.service.ValoracionService;
 
+@Service
 public class ValoracionServiceImpl implements ValoracionService{
 	
 	@Autowired

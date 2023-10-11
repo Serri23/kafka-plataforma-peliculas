@@ -7,7 +7,6 @@ import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.stereotype.Component;
 
 import com.hiberus.aplicadorvaloraciones.domain.model.Valoracion;
-import com.hiberus.aplicadorvaloraciones.domain.repository.ValoracionRepository;
 import com.hiberus.aplicadorvaloraciones.domain.service.ValoracionService;
 import com.hiberus.aplicadorvaloraciones.infraestructure.kafka.avro.ValoracionKey;
 import com.hiberus.aplicadorvaloraciones.infraestructure.kafka.avro.ValoracionValue;

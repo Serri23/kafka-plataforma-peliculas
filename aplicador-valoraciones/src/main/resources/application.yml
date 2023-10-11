@@ -10,9 +10,9 @@ spring:
     name: aplicador-valoraciones
 
   datasource:
-    password: admin123
+    password: admin
     url: jdbc:postgresql://localhost:5432/aplicador-valoraciones-db
-    username: postgres
+    username: admin
     
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
