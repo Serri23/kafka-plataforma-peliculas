@@ -17,7 +17,7 @@ public class PeliculaValoradaKafkaServiceImpl implements PeliculaValoradaKafkaSe
 	@Autowired
 	private KafkaTemplate<PeliculaValoradaKey,PeliculaValoradaValue> kafkaTemplate;
 	
-	public void enviarPeliculaValorada(Pelicula peliculaValorada) {
+	public void crearPeliculaValorada(Pelicula peliculaValorada) {
 		PeliculaValoradaKey peliculaValoradaKey = new PeliculaValoradaKey();
 		peliculaValoradaKey.setId(peliculaValorada.getId());
 		PeliculaValoradaValue peliculaValoradaValue = new PeliculaValoradaValue();

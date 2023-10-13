@@ -4,6 +4,6 @@ import com.hiberus.aplicadorvaloraciones.domain.model.Pelicula;
 
 public interface PeliculaValoradaKafkaService{
 
-	void enviarPeliculaValorada(Pelicula peliculaValorada);
+	void crearPeliculaValorada(Pelicula peliculaValorada);
 
 }

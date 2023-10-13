@@ -101,6 +101,7 @@ services:
          
     applicador-valoraciones-db:
         image: postgres
+        container_name: applicador-valoraciones-db
         ports:
           - "5432:5432"
         environment:
@@ -110,6 +111,7 @@ services:
                 
     consultador-peliculas-db:
         image: postgres
+        container_name: consultador-peliculas-db
         ports:
           - "5433:5433"
         environment:
