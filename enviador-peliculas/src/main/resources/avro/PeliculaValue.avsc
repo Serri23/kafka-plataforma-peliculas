@@ -15,20 +15,10 @@
       "name": "descripcion",
       "type": "string"
     },
-    {
-      "name": "categoria",
-      "type": {
-        "type": "enum",
-        "name": "Categoria",
-        "namespace": "com.hiberus.enviadorpeliculas.infraestructure.kafka.avro",
-        "symbols": [
-          "ACCION",
-          "TERROR",
-          "COMEDIA",
-          "DRAMA"
-        ]
-      }
-    },
+    { 
+	  "name":"categoria",  
+	  "type":"string" 
+	},
     {
     	"name": "fechaEstreno", 
     	"type": "string"
