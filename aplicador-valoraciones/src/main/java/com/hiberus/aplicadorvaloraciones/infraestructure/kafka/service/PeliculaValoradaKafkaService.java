@@ -1,9 +1,9 @@
 package com.hiberus.aplicadorvaloraciones.infraestructure.kafka.service;
 
-import com.hiberus.aplicadorvaloraciones.domain.model.PeliculaValorada;
+import com.hiberus.aplicadorvaloraciones.domain.model.Pelicula;
 
 public interface PeliculaValoradaKafkaService{
 
-	void enviarPeliculaValorada(PeliculaValorada peliculaValorada);
+	void enviarPeliculaValorada(Pelicula peliculaValorada);
 
 }

@@ -3,11 +3,19 @@ package com.hiberus.aplicadorvaloraciones.domain.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Valoracion {
 	
 	@Id
@@ -19,9 +27,9 @@ public class Valoracion {
 	private String comentario;	
 	
 
-//	@ManyToOne
-//	@JoinColumn(name="idPelicula",nullable=false)
-//	private Pelicula pelicula;
+	@ManyToOne
+	@JoinColumn(name="idPelicula",nullable=false)
+	Pelicula pelicula;
 //	@OneToMany( mappedBy = "valoracion", cascade = CascadeType.ALL )
 //	List<PeliculaValorada> peliculasValoradas;
 

@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
-import com.hiberus.aplicadorvaloraciones.domain.model.PeliculaValorada;
+import com.hiberus.aplicadorvaloraciones.domain.model.Pelicula;
 import com.hiberus.aplicadorvaloraciones.infraestructure.kafka.avro.PeliculaValoradaKey;
 import com.hiberus.aplicadorvaloraciones.infraestructure.kafka.avro.PeliculaValoradaValue;
 import com.hiberus.aplicadorvaloraciones.infraestructure.kafka.service.PeliculaValoradaKafkaService;
@@ -17,7 +17,7 @@ public class PeliculaValoradaKafkaServiceImpl implements PeliculaValoradaKafkaSe
 	@Autowired
 	private KafkaTemplate<PeliculaValoradaKey,PeliculaValoradaValue> kafkaTemplate;
 	
-	public void enviarPeliculaValorada(PeliculaValorada peliculaValorada) {
+	public void enviarPeliculaValorada(Pelicula peliculaValorada) {
 		PeliculaValoradaKey peliculaValoradaKey = new PeliculaValoradaKey();
 		peliculaValoradaKey.setId(peliculaValorada.getId());
 		PeliculaValoradaValue peliculaValoradaValue = new PeliculaValoradaValue();

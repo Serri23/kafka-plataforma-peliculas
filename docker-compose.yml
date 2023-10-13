@@ -99,19 +99,17 @@ services:
 #      - "kafka=kafka"
 #      - "schema-registry=schema-registry"
          
-    aplicador-valoraciones-db:
+    applicador-valoraciones-db:
         image: postgres
-        container_name: "aplicador-valoraciones-db"
         ports:
           - "5432:5432"
         environment:
           POSTGRES_USER: admin
           POSTGRES_PASSWORD: admin
-          POSTGRES_DB: aplicador-valoraciones-db
+          POSTGRES_DB: applicador-valoraciones-db
                 
     consultador-peliculas-db:
         image: postgres
-        container_name: "consultador-peliculas-db"
         ports:
           - "5433:5433"
         environment:
@@ -126,8 +124,8 @@ services:
          PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
          PGADMIN_DEFAULT_PASSWORD: "admin"
         ports:
-         - "8082:8082"
+         - "80:80"
         depends_on:
-         - aplicador-valoraciones-db
+         - applicador-valoraciones-db
          - consultador-peliculas-db
         

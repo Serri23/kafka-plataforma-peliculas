@@ -1,13 +1,22 @@
 package com.hiberus.aplicadorvaloraciones.domain.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Pelicula {
 
 	@Id
@@ -25,8 +34,8 @@ public class Pelicula {
 	
 	private long visualizaciones;
 	
-//	@OneToMany(mappedBy="pelicula")
-//	private Set<Valoracion> valoraciones;
+	@OneToMany(mappedBy="pelicula")
+	List<Valoracion> valoraciones;
 	
 //	@OneToMany( mappedBy = "pelicula", cascade = CascadeType.ALL )
 //    private Set<PeliculaValorada> peliculasValoradas;

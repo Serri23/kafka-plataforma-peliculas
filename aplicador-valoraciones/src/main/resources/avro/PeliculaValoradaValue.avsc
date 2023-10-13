@@ -17,17 +17,7 @@
     },
     {
       "name": "categoria",
-      "type": {
-        "type": "enum",
-        "name": "Categoria",
-        "namespace": "com.hiberus.aplicadorvaloraciones.infraestructure.kafka.avro",
-        "symbols": [
-          "ACCION",
-          "TERROR",
-          "COMEDIA",
-          "DRAMA"
-        ]
-      }
+      "type": "string"
     },
     {
     	"name": "fechaEstreno", 
