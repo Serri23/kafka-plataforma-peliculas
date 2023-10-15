@@ -1,0 +1,35 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.enviadorpeliculas.infraestructure.kafka.avro",
+  "name": "PeliculaValue",
+  "fields": [
+    {
+      "name": "id",
+      "type": "long"
+    },
+    {
+      "name": "titulo",
+      "type": "string"
+    },
+    {
+      "name": "descripcion",
+      "type": "string"
+    },
+    { 
+	  "name":"categoria",  
+	  "type":"string" 
+	},
+    {
+    	"name": "fechaEstreno", 
+    	"type": "string"
+    },
+    {
+    	"name": "duracion",
+    	"type": "float"
+    },
+    {
+    	"name": "visualizaciones",
+    	"type": "long"
+    }
+  ]
+}

@@ -20,7 +20,7 @@
 		<module>enviador-valoraciones</module>
 		<module>applicador-valoraciones</module>
 		<module>clasificador-mejorespeliculas</module>
-		<module>agregador-peliculas-masvistas</module>
+		<module>agrupador-peliculas</module>
 		<module>consultador-peliculas</module>
 	</modules>
 	

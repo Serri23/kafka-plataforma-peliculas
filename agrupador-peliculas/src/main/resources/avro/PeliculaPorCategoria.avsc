@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.agrupadorpeliculas.infraestructure.kafka.avro",
+  "name": "PeliculaPorCategoriaKey",
+  "fields": [
+    {
+      "name": "categoria",
+      "type": "string"
+    }
+  ]
+}
