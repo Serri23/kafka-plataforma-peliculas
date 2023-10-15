@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "namespace": "com.hiberus.agregadorpeliculasmasvistas.infraestructure.kafka.avro",
+  "namespace": "com.hiberus.applicadorvaloraciones.infraestructure.kafka.avro",
   "name": "PeliculaValoradaKey",
   "fields": [
     {

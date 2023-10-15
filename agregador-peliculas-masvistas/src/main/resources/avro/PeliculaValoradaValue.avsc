@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "namespace": "com.hiberus.agregadorpeliculasmasvistas.infraestructure.kafka.avro",
+  "namespace": "com.hiberus.applicadorvaloraciones.infraestructure.kafka.avro",
   "name": "PeliculaValoradaValue",
   "fields": [
     {
@@ -17,17 +17,7 @@
     },
     {
       "name": "categoria",
-      "type": {
-        "type": "enum",
-        "name": "Categoria",
-        "namespace": "com.hiberus.agregadorpeliculasmasvistas.infraestructure.kafka.avro",
-        "symbols": [
-          "ACCION",
-          "TERROR",
-          "COMEDIA",
-          "DRAMA"
-        ]
-      }
+      "type": "string"
     },
     {
     	"name": "fechaEstreno", 
@@ -42,15 +32,15 @@
     	"type": "long"
     },
     {
-        "name": "valoraciones",
-        "type": {
-            "type": "array",
-            "items":{
-                "name": "Valoracion",
-                "type": "record",
-                "fields":[
-                    {
-				      "name": "id_pelicula",
+	    "name": "valoraciones",
+	    "type": {
+	        "type": "array",
+	        "items":{
+	            "name": "Valoracion",
+	            "type": "record",
+	            "fields":[
+	                {
+				      "name": "id",
 				      "type": "long"
 				    },
 				    {
@@ -61,9 +51,9 @@
 				      "name": "comentario",
 				      "type": "string"
 				    }
-                ]
-            }
-        }
-        }
+	            ]
+	        }
+	    }
+    }
   ]
 }

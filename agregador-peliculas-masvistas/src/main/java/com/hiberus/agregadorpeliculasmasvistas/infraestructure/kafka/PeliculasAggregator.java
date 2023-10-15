@@ -28,9 +28,12 @@ public class PeliculasAggregator {
 	
 	@Bean
     public Function<KStream<PeliculaValoradaKey, PeliculaValoradaValue>, KStream<PeliculasValoradasMasVistasKey, PeliculasValoradasMasVistasValue>> aggregatePeliculas() {
-//        return peliculasStream -> peliculasStream
-//        		.peek((k,v) -> log.info("[aggregatePeliculas) Pelicula recibida -> clave: {}, valor{}", k,v))
-//        		.selectKey((k,v) -> PeliculasValoradasMasVistasKey.newBuilder().setPelicula(v.get)ç
-	return null;
+		return peliculasStream -> peliculasStream
+				.peek((k,v) -> log.info("[Agregador Peliculas] - Pelicula reicibida -> clave: {}, valor: {}",k,v))
+				.selectKey((k,v) -> PeliculasValoradasMasVistasKey.newBuilder().setVisualizaciones(v.getVisualizaciones()).build())
+				.groupByKey()
+				.aggregate(initializer,aggregator,Named.as("PELICULAS_VALORADAS_MAS_VISTAS"),Materialized.as("PELICULAS_VALORADAS_MAS_VISTAS"))
+				.toStream()
+				.peek((k,v) -> log.info("[Agregador Peliculas] - Peliculas agrupadas -> clave: {}, valor: {}",k,v));
 	}
 }

@@ -1,6 +1,6 @@
 server:
   port: 8088
-  
+
 spring:
   config:
     activate:
@@ -10,12 +10,11 @@ spring:
     name: consultador-peliculas
 
   datasource:
-    username: postgres
-    password: admin123
-    url: jdbc:postgresql://localhost:5433/consultador-peliculas-db
+    url: jdbc:mysql://${consultador-peliculas-db:localhost}:3306/consultador-peliculas-db
+    username: root
+    password: root
     
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
     show-sql: true
@@ -45,7 +44,7 @@ spring:
               commit.interval.ms: 100
               topology.optimization: all
               session.timeout.ms: 10000
-              schema.registry.url: http://schema-registry:8084
+              schema.registry.url: http://${schema-registry:localhost}:8081
               auto.register.schemas: true
               default.key.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
               default.value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde

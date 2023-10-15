@@ -2,11 +2,14 @@ package com.hiberus.agregadorpeliculasmasvistas.infraestructure.kafka;
 
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Component;
+
 import com.hiberus.agregadorpeliculasmasvistas.infraestructure.kafka.avro.Pelicula;
 import com.hiberus.agregadorpeliculasmasvistas.infraestructure.kafka.avro.PeliculaValoradaValue;
 import com.hiberus.agregadorpeliculasmasvistas.infraestructure.kafka.avro.PeliculasValoradasMasVistasKey;
 import com.hiberus.agregadorpeliculasmasvistas.infraestructure.kafka.avro.PeliculasValoradasMasVistasValue;
 
+@Component
 public class Aggregator implements org.apache.kafka.streams.kstream.Aggregator<PeliculasValoradasMasVistasKey, PeliculaValoradaValue, PeliculasValoradasMasVistasValue>{
 
 	@Override
@@ -15,7 +18,7 @@ public class Aggregator implements org.apache.kafka.streams.kstream.Aggregator<P
 		peliculasAgregadasValue = PeliculasValoradasMasVistasValue.newBuilder()
                 .setPeliculas(peliculasAgregadasValue.getPeliculas()
                         .stream()
-                        .filter(c -> !(peliculaValue.getId()== c.getId()))
+                        .filter(c -> peliculaValue.getId() != (c.getId()) && peliculaValue.getVisualizaciones() > 1000000)
                         .collect(Collectors.toList())).build();
 
 		peliculasAgregadasValue.getPeliculas().add(createPelicula(peliculaValue));

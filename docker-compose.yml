@@ -78,27 +78,7 @@ services:
         depends_on:
             - kafka
         restart: always
-    
-#    enviador-valoraciones:
-#      build: ./enviador-valoraciones
-#      container_name: enviador-valoraciones
-#      restart: always
-#      ports:
-#       - "8083:8083"
-#      environment:
-#      - "kafka=kafka"
-#      - "schema-registry=schema-registry"
-    
-#    enviador-peliculas:
-#      build: ./enviador-peliculas
-#      container_name: enviador-peliculas
-#      restart: always
-#      ports:
-#      - "8084:8084"
-#      environment:
-#      - "kafka=kafka"
-#      - "schema-registry=schema-registry"
-         
+                
     applicador-valoraciones-db:
         image: postgres
         container_name: applicador-valoraciones-db
@@ -110,24 +90,11 @@ services:
           POSTGRES_DB: applicador-valoraciones-db
                 
     consultador-peliculas-db:
-        image: postgres
+        image: mysql
         container_name: consultador-peliculas-db
         ports:
-          - "5433:5433"
+          - "3306:3306"
         environment:
-          POSTGRES_USER: admin
-          POSTGRES_PASSWORD: admin
-          POSTGRES_DB: consultador-peliculas-db
-     
-    pgadmin:
-        container_name: pgadmin
-        image: dpage/pgadmin4
-        environment:
-         PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
-         PGADMIN_DEFAULT_PASSWORD: "admin"
-        ports:
-         - "80:80"
-        depends_on:
-         - applicador-valoraciones-db
-         - consultador-peliculas-db
+          - "MYSQL_DATABASE=consultador-peliculas-db" 
+          - "MYSQL_ROOT_PASSWORD=root"
         

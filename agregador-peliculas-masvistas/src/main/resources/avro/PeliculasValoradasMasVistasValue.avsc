@@ -26,17 +26,7 @@
             },
             {
 		      "name": "categoria",
-		      "type": {
-		        "type": "enum",
-		        "name": "Categoria",
-		        "namespace": "com.hiberus.agregadorpeliculasmasvistas.infraestructure.kafka.avro",
-		        "symbols": [
-		          "ACCION",
-		          "TERROR",
-		          "COMEDIA",
-		          "DRAMA"
-		        ]
-		      }
+		      "type": "string",
 		    },
 		    {
 		    	"name": "fechaEstreno", 
