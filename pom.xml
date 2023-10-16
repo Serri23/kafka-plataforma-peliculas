@@ -22,6 +22,7 @@
 		<module>corrector-valoraciones</module>
 		<module>agrupador-peliculas</module>
 		<module>consultador-peliculas</module>
+		<module>clasificador-mejores-peliculas</module>
 	</modules>
 	
 	<dependencies>

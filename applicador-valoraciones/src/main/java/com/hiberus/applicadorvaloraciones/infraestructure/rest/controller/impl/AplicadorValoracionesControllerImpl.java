@@ -36,11 +36,4 @@ public class AplicadorValoracionesControllerImpl implements AplicadorValoracione
 	public void añadirValoracionAPelicula(@RequestParam Long idPelicula, @RequestParam Long idValoracion) {
 		ProcesarSolicitud.añadirValoracionAPelicula(idPelicula,idValoracion,peliculaRepository,valoracionRepository,peliculaValoradaRepository,peliculaValoradaService);
 	}
-
-//	@PostMapping(value="/eliminarValoracionDePelicula")
-//	@ResponseStatus(HttpStatus.ACCEPTED)
-//	public void eliminarValoracionDePelicula(Long idPelicula, Long idValoracion) {
-//		ProcesarSolicitud.eliminarValoracionDePelicula(idPelicula,idValoracion,peliculaRepository,valoracionRepository,peliculaValoradaRepository,peliculaValoradaService);
-//	}
-
 }

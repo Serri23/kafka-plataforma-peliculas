@@ -21,7 +21,7 @@ public class ValoracionCorregidaServiceImpl implements ValoracionCorregidaServic
 	
 	public void crear(ValoracionKey valoracionKey, ValoracionValue valoracionValue) {
 		kafkaTemplate.send(TOPIC_DE_VALORACIONES_CORREGIDAS,valoracionKey,valoracionValue);
-		log.debug("[Corrector Valoraciones] - valoracionKey; {} , valoracionValue {} enviada al topic de valoraciones_corregidas",valoracionValue,valoracionKey);
+		log.debug("[Corrector Valoraciones] - valoracionKey; {} , valoracionValue {} enviada al topic de valoraciones corregidas",valoracionKey,valoracionValue);
 	}
 
 	public void eliminar(ValoracionKey valoracionKey) {

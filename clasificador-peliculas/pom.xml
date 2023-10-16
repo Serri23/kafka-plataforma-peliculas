@@ -7,13 +7,12 @@
 		<artifactId>kafka-plataforma-peliculas</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>corrector-valoraciones</artifactId>
+	<artifactId>clasificador-mejores-peliculas</artifactId>
 	<properties>
 		<java.version>11</java.version>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
-	
 	<build>
 		<plugins>
 			<plugin>
