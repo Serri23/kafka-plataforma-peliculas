@@ -3,7 +3,7 @@ package com.hiberus.applicadorvaloraciones.infraestructure;
 
 import com.hiberus.applicadorvaloraciones.domain.model.Pelicula;
 import com.hiberus.applicadorvaloraciones.domain.model.PeliculaValorada;
-import com.hiberus.applicadorvaloraciones.domain.model.Valoracion;
+import com.hiberus.applicadorvaloraciones.domain.model.ValoracionDomain;
 import com.hiberus.applicadorvaloraciones.domain.repository.PeliculaRepository;
 import com.hiberus.applicadorvaloraciones.domain.repository.PeliculaValoradaRepository;
 import com.hiberus.applicadorvaloraciones.domain.repository.ValoracionRepository;
@@ -16,7 +16,7 @@ public class ProcesarSolicitud {
 
 	public static void añadirValoracionAPelicula(Long idPelicula,Long idValoracion,PeliculaRepository peliculaRepository, ValoracionRepository valoracionRepository, PeliculaValoradaRepository peliculaValoradaRepository, PeliculaValoradaService peliculaValoradaService) {
 			
-		Valoracion valoracion = valoracionRepository.findById(idValoracion).get();
+		ValoracionDomain valoracion = valoracionRepository.findById(idValoracion).get();
 		Pelicula pelicula = peliculaRepository.findById(idPelicula).get();
 		if(peliculaValoradaRepository.existsById(idPelicula)) {
 			PeliculaValorada peliculaValorada = peliculaValoradaRepository.findById(idPelicula).get();

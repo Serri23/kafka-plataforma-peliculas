@@ -37,6 +37,7 @@
 	        "type": "array",
 	        "items":{
 	            "name": "Valoracion",
+	            "namespace": "com.hiberus.applicadorvaloraciones.infraestructure.kafka.avro",
 	            "type": "record",
 	            "fields":[
 	                {

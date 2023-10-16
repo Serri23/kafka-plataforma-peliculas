@@ -1,13 +1,11 @@
 package com.hiberus.applicadorvaloraciones.infraestructure.kafka.service;
 
-
-
-import com.hiberus.applicadorvaloraciones.domain.model.Valoracion;
+import com.hiberus.applicadorvaloraciones.domain.model.ValoracionDomain;
 
 public interface ValoracionService {
 
 	void eliminar(long id);
 
-	void crear(Valoracion valoracion);
+	void crear(ValoracionDomain valoracion);
 
 }

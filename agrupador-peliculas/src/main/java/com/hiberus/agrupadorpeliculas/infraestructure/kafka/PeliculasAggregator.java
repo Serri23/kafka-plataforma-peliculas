@@ -2,6 +2,7 @@ package com.hiberus.agrupadorpeliculas.infraestructure.kafka;
 
 import java.util.function.Function;
 
+import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.Materialized;
 import org.apache.kafka.streams.kstream.Named;

@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import com.hiberus.applicadorvaloraciones.domain.model.Pelicula;
-import com.hiberus.applicadorvaloraciones.domain.model.Valoracion;
+import com.hiberus.applicadorvaloraciones.domain.model.ValoracionDomain;
 import com.hiberus.applicadorvaloraciones.infraestructure.kafka.service.PeliculaService;
 import com.hiberus.applicadorvaloraciones.infraestructure.kafka.service.ValoracionService;
 import com.hiberus.enviadorpeliculas.infraestructure.kafka.avro.PeliculaKey;
@@ -61,7 +61,7 @@ public class KafkaListener {
 			if((valoracionValue == null)) {
 				valoracionService.eliminar(valoracionKey.getId());
 			}else {
-				Valoracion valoracion = new Valoracion(valoracionValue.getId(),valoracionValue.getIdPelicula(),valoracionValue.getPuntuacion(),valoracionValue.getComentario());
+				ValoracionDomain valoracion = new ValoracionDomain(valoracionValue.getId(),valoracionValue.getIdPelicula(),valoracionValue.getPuntuacion(),valoracionValue.getComentario());
 				valoracionService.crear(valoracion);
 			}
 		});

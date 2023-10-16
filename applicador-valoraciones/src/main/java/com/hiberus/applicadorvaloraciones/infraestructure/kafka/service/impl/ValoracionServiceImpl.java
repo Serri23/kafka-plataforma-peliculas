@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hiberus.applicadorvaloraciones.domain.model.PeliculaValorada;
-import com.hiberus.applicadorvaloraciones.domain.model.Valoracion;
+import com.hiberus.applicadorvaloraciones.domain.model.ValoracionDomain;
 import com.hiberus.applicadorvaloraciones.domain.repository.PeliculaValoradaRepository;
 import com.hiberus.applicadorvaloraciones.domain.repository.ValoracionRepository;
 import com.hiberus.applicadorvaloraciones.infraestructure.kafka.service.ValoracionService;
@@ -20,7 +20,7 @@ public class ValoracionServiceImpl implements ValoracionService{
 	
 	public void eliminar(long id) {
 		if(valoracionRepository.existsById(id)) {
-			Valoracion valoracion = valoracionRepository.findById(id).get();
+			ValoracionDomain valoracion = valoracionRepository.findById(id).get();
 			if(peliculaValoradaRepository.existsById(valoracion.getIdPelicula())) {
 				PeliculaValorada peliculaValorada = peliculaValoradaRepository.findById(valoracion.getIdPelicula()).get();
 				peliculaValoradaRepository.deleteById(peliculaValorada.getId());
@@ -35,7 +35,7 @@ public class ValoracionServiceImpl implements ValoracionService{
 	}
 
 	
-	public void crear(Valoracion valoracion) {
+	public void crear(ValoracionDomain valoracion) {
 		if(!valoracionRepository.existsById(valoracion.getId())) {
 			valoracionRepository.save(valoracion);
 		}

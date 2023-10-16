@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.hiberus.applicadorvaloraciones.domain.model.Pelicula;
 import com.hiberus.applicadorvaloraciones.domain.model.PeliculaValorada;
-import com.hiberus.applicadorvaloraciones.domain.model.Valoracion;
+import com.hiberus.applicadorvaloraciones.domain.model.ValoracionDomain;
 import com.hiberus.applicadorvaloraciones.domain.repository.PeliculaRepository;
 import com.hiberus.applicadorvaloraciones.domain.repository.PeliculaValoradaRepository;
 import com.hiberus.applicadorvaloraciones.domain.repository.ValoracionRepository;
@@ -35,7 +35,7 @@ public class PeliculaServiceImpl implements PeliculaService{
 			if(peliculaValoradaRepository.existsById(id)) {
 				PeliculaValorada peliculaValorada = peliculaValoradaRepository.findById(id).get();
 				peliculaValoradaRepository.deleteById(id);
-				List<Valoracion> valoracionesABorrar = peliculaValorada.getValoraciones();
+				List<ValoracionDomain> valoracionesABorrar = peliculaValorada.getValoraciones();
 				valoracionRepository.deleteAllInBatch(valoracionesABorrar);
 				peliculaValoradaService.eliminarPeliculaValorada(id);
 			}

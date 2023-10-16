@@ -33,10 +33,10 @@ public class PeliculaValorada{
 	String fechaEstreno;
 	float duracion;
 	long visualizaciones;
-	@ElementCollection(targetClass = Valoracion.class, fetch = FetchType.EAGER)
+	@ElementCollection(targetClass = ValoracionDomain.class, fetch = FetchType.EAGER)
 	@CollectionTable(name="valoraciones_pelicula", joinColumns = @JoinColumn(name ="id_pelicula"))
 	@Column(name = "valoracion", nullable = false)
-	List<Valoracion> valoraciones;
+	List<ValoracionDomain> valoraciones;
 	
 	public PeliculaValorada(Pelicula pelicula){
 		this.id = pelicula.id;
@@ -46,7 +46,7 @@ public class PeliculaValorada{
 		this.fechaEstreno = pelicula.fechaEstreno;
 		this.duracion = pelicula.duracion;
 		this.visualizaciones = pelicula.visualizaciones;
-		this.valoraciones = new ArrayList<Valoracion>();
+		this.valoraciones = new ArrayList<ValoracionDomain>();
 	}
 	
 }

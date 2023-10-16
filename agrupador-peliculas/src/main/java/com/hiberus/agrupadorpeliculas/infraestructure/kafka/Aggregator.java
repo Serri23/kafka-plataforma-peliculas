@@ -18,7 +18,7 @@ public class Aggregator implements org.apache.kafka.streams.kstream.Aggregator<P
 		peliculasAgregadasValue = PeliculaPorCategoriaValue.newBuilder()
                 .setPeliculas(peliculasAgregadasValue.getPeliculas()
                         .stream()
-                        .filter(c -> peliculaValue.getId() != (c.getId()) && peliculaValue.getVisualizaciones() > 1000000)
+                        .filter(c -> peliculaValue.getId() != (c.getId()))
                         .collect(Collectors.toList())).build();
 
 		peliculasAgregadasValue.getPeliculas().add(createPelicula(peliculaValue));
