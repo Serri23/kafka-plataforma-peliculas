@@ -32,13 +32,12 @@ public class PeliculaServiceImpl implements PeliculaService{
 		PeliculaKey peliculaKey = new PeliculaKey(pelicula.getId());
 		PeliculaValue peliculaValue = peliculaKafkaMapper.peliculaToPeliculaValue(pelicula);
 		kafkaTemplate.send(TOPIC_DE_PELICULAS,peliculaKey,peliculaValue);
-		log.info("Pelicula ["+pelicula.getId()+"] enviada al topic de peliculas");
+		log.debug("[Enviador Peliculas] - PeliculaKey: {}, PeliculaValue{} enviada al topic de peliculas",peliculaKey,peliculaValue);
 	}
 
 	public void eliminarPelicula(Long id) {
 		PeliculaKey peliculaKey = new PeliculaKey(id);
 		kafkaTemplate.send(TOPIC_DE_PELICULAS,peliculaKey,null);
-		log.info("Pelicula ["+id+"] enviada al topic de peliculas");
 	}
 
 }

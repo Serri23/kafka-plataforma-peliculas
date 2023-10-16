@@ -1,7 +1,6 @@
 package com.hiberus.consultadorpeliculas.infraestructure.kafka;
 
 
-import java.util.ArrayList;
 
 import org.apache.kafka.streams.kstream.KStream;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 import com.hiberus.applicadorvaloraciones.infraestructure.kafka.avro.PeliculaValoradaKey;
 import com.hiberus.applicadorvaloraciones.infraestructure.kafka.avro.PeliculaValoradaValue;
-import com.hiberus.applicadorvaloraciones.infraestructure.kafka.avro.Valoracion;
 import com.hiberus.consultadorpeliculas.domain.model.PeliculaValorada;
 import com.hiberus.consultadorpeliculas.infraestructure.kafka.service.PeliculaValoradaService;
 

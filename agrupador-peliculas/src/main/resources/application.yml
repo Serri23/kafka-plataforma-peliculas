@@ -1,3 +1,6 @@
+server:
+  port: 8087
+  
 spring:
   application.name: agrupador-peliculas
 
@@ -18,7 +21,8 @@ spring:
         producer:
          useNativeEncoding: true
        
-  kafka.streams:
+  kafka:
+   streams:
     bindings:
      aggregatePeliculas-in-0:
       consumer:
@@ -26,7 +30,7 @@ spring:
        valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
        applicationId: ${spring.application.name}
        
-    binder:
+     binder:
      configuration:
       commit.interval.ms: 100
       session.timeout.ms: 10000

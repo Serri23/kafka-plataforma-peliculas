@@ -30,11 +30,11 @@ public class PeliculasAggregator {
 	@Bean
     public Function<KStream<PeliculaValoradaKey, PeliculaValoradaValue>, KStream<PeliculaPorCategoriaKey, PeliculaPorCategoriaValue>> aggregatePeliculas() {
 		return peliculasStream -> peliculasStream
-				.peek((k,v) -> log.info("[Agregador Peliculas] - Pelicula reicibida -> clave: {}, valor: {}",k,v))
+				.peek((k,v) -> log.debug("[Agregador Peliculas] - Pelicula reicibida -> clave: {}, valor: {}",k,v))
 				.selectKey((k,v) -> PeliculaPorCategoriaKey.newBuilder().setCategoria(v.getCategoria()).build())
 				.groupByKey()
 				.aggregate(initializer,aggregator,Named.as("PELICULAS_POR_CATEGORIA"),Materialized.as("PELICULAS_POR_CATEGORIA"))
 				.toStream()
-				.peek((k,v) -> log.info("[Agregador Peliculas] - Peliculas agrupadas -> clave: {}, valor: {}",k,v));
+				.peek((k,v) -> log.debug("[Agregador Peliculas] - Peliculas agrupadas -> clave: {}, valor: {}",k,v));
 	}
 }

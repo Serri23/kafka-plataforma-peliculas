@@ -29,13 +29,12 @@ public class ValoracionServiceImpl implements ValoracionService{
 		ValoracionKey valoracionKey = new ValoracionKey(valoracion.getId());
 		ValoracionValue valoracionValue = valoracionKafkaMapper.valoracionToValoracionValue(valoracion);
 		kafkaTemplate.send(TOPIC_DE_VALORACIONES,valoracionKey,valoracionValue);
-		log.info("Valoracion ["+valoracion.getId()+"] enviada al topic de valoraciones");
+		log.debug("[Enviador Valoraciones] - ValoracionKey: {}, ValoracionValue: {} enviada al topic de valoraciones",valoracionKey,valoracionValue);
 	}
 
 	@Override
 	public void eliminarValoracion(Long id) {
 		ValoracionKey valoracionKey = new ValoracionKey(id);
 		kafkaTemplate.send(TOPIC_DE_VALORACIONES,valoracionKey,null);
-		log.info("Valoracion ["+id+"] enviada al topic de valoraciones");
 	}
 }

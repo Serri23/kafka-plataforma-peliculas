@@ -29,7 +29,7 @@ public class PeliculaValoradaServiceImpl implements PeliculaValoradaService{
 		PeliculaValoradaKey peliculaValoradaKey = new PeliculaValoradaKey(peliculaValorada.getId());
 		PeliculaValoradaValue peliculaValoradaValue = peliculaValoradaKafkaMapper.peliculaValoradaToPeliculaValoradaValue(peliculaValorada);
 		kafkaTemplate.send(TOPIC_DE_PELICULAS_VALORADAS,peliculaValoradaKey,peliculaValoradaValue);
-		log.info("Pelicula Valorada ["+peliculaValorada.getId()+"] enviada al topic de peliculas_valoradas");
+		log.debug("[Aplicador Valoraciones] - PeliculaValoradaKey: {}, PeliculaValoradaValue: {} enviada al topic de peliculas valoradas",peliculaValoradaKey,peliculaValoradaValue);
 	}
 	
 	public void eliminarPeliculaValorada(Long id) {
