@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.applicadorvaloraciones.infraestructure.kafka.avro",
+  "name": "PeliculaValoradaKey",
+  "fields": [
+    {
+      "name": "id",
+      "type": "long"
+    }
+  ]
+}

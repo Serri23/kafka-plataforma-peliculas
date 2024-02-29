@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.enviadorvaloraciones.infraestructure.kafka.avro",
+  "name": "ValoracionValue",
+  "fields": [
+    {
+      "name": "id",
+      "type": "long"
+    },
+    {
+    	"name":"idPelicula",
+    	"type":"long"
+    },
+    {
+      "name": "puntuacion",
+      "type": "float"
+    },
+    {
+      "name": "comentario",
+      "type": "string"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.agrupadorpeliculas.infraestructure.kafka.avro",
+  "name": "PeliculaPorCategoriaValue",
+  "fields": [
+    {
+      "name": "peliculas",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "namespace": "com.hiberus.agrupadorpeliculas.infraestructure.kafka.avro",
+          "name": "Pelicula",
+          "fields": [
+            {
+              "name": "id",
+              "type": "long"
+            },
+            {
+              "name": "titulo",
+              "type": "string"
+            },
+            {
+              "name": "descripcion",
+              "type": "string"
+            },
+            {
+		    	"name": "fechaEstreno", 
+		    	"type": "string"
+		    },
+		    {
+		    	"name": "duracion",
+		    	"type": "float"
+		    },
+		    {
+		    	"name": "visualizaciones",
+		    	"type": "long"
+		    },
+		    {
+			    "name": "valoraciones",
+			    "type": {
+			        "type": "array",
+			        "items":{
+			            "name": "Valoracion",
+			            "type": "record",
+			            "namespace":"com.hiberus.applicadorvaloraciones.infraestructure.kafka.avro",
+			            "fields":[
+			                {
+						      "name": "id",
+						      "type": "long"
+						    },
+						    {
+						      "name": "puntuacion",
+						      "type": "float"
+						    },
+						    {
+						      "name": "comentario",
+						      "type": "string"
+						    }
+			            ]
+			        }
+			    }
+		    }
+          ]
+        }
+      }
+    }
+  ]
+}

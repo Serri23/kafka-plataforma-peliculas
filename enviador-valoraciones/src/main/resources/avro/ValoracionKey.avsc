@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.enviadorvaloraciones.infraestructure.kafka.avro",
+  "name": "ValoracionKey",
+  "fields": [
+    {
+      "name": "id",
+      "type": "long"
+    }
+  ]
+}

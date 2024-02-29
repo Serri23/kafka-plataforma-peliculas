@@ -1,0 +1,40 @@
+server:
+  port: 8087
+  
+spring:
+  application.name: agrupador-peliculas
+
+  cloud:
+   function:
+     definition: aggregatePeliculas;
+     
+   stream:
+      bindings:
+       aggregatePeliculas-in-0:
+        destination: peliculas_valoradas
+        consumer:
+         concurrency: 1
+         useNativeDecoding: true
+         
+       aggregatePeliculas-out-0:
+        destination: peliculas_por_categoria
+        producer:
+         useNativeEncoding: true
+       
+  kafka:
+   streams:
+    bindings:
+     aggregatePeliculas-in-0:
+      consumer:
+       keySerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+       valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+       applicationId: ${spring.application.name}
+       
+     binder:
+     configuration:
+      commit.interval.ms: 100
+      session.timeout.ms: 10000
+      schema.registry.url: http://localhost:8081
+      auto.register.schemas: true
+      default.key.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+      default.value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
